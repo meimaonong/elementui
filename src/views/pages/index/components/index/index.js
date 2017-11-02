@@ -5,5 +5,8 @@ export default {
             msg: 'msg',
             radio: '1'
         }
+    },
+    mounted() {
+        console.log('test')
     }
 }

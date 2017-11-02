@@ -4,6 +4,7 @@ var ip = require('ip')
 var WebpackNotifierPlugin = require('webpack-notifier')
 var glob = require('glob')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 //环境标识
 const isProd = process.env.NODE_ENV === 'production' ? true : false
@@ -11,7 +12,7 @@ const isProd = process.env.NODE_ENV === 'production' ? true : false
 //入口文件列表
 let newEntries = glob.sync('./src/views/pages/*/main.js')
 let entryArr = {}
-newEntries.forEach(function(f) {
+newEntries.forEach(function (f) {
   let tArr = f.split('/')
   let name = tArr[tArr.length - 2]
   entryArr[name] = f
@@ -68,8 +69,8 @@ module.exports = {
   plugins: [
     ...pluginsList,
     new webpack.optimize.CommonsChunkPlugin({
-        name: 'common',
-        filename:  isProd ? '[name]/build.js?[chunkhash:8]' : '[name]/build.js?[hash:8]',
+      name: 'common',
+      filename: isProd ? '[name]/build.js?[chunkhash:8]' : '[name]/build.js?[hash:8]',
     }),
     new WebpackNotifierPlugin(),
     new webpack.ProvidePlugin({
