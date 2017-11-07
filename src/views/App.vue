@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <sysHeader></sysHeader>
+    <div class="main_w">
     <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -29,7 +31,6 @@ export default {
 <style lang="less">
 body {
     font-size: 14px;
-    background: #f0f0f0;
     margin: 0;
 }
 
@@ -43,6 +44,23 @@ a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333;
+  position: relative;
+  width: 100%;
+
+  .main_w{
+    padding: 60px 0 20px;
+    height: 2000px;
+    z-index: 9;
+  }
+  .main_c{
+    padding: 20px;
+  }
+
+  .el-pagination{
+    padding: 20px 0;
+    text-align: right;
+  }
+
 }
 
 </style>

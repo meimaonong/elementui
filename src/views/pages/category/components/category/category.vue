@@ -41,4 +41,4 @@
 
 </div>
 </template>
-<script src="./user.js"></script>
+<script src="./category.js"></script>
